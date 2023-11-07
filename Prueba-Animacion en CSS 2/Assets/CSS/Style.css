@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+/*Breakpoints*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dashboard {
+  font-family: "Roboto", sans-serif;
+  display: grid;
+  grid-template-areas: "header" "aside" "main" "footer";
+  grid-template-rows: 100px 100px 1fr 100px;
+}
+.dashboard header {
+  grid-area: header;
+  background-color: rgb(6, 6, 44);
+  color: blueviolet;
+}
+.dashboard header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  gap: 30px;
+}
+.dashboard header nav .brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard header nav .brand h1 {
+  font-size: 20px;
+  font-weight: 800;
+}
+.dashboard header nav .brand figure {
+  width: 80px;
+}
+.dashboard header nav .brand figure img {
+  border-radius: 45%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@media (max-width: 576px) {
+  .dashboard header nav .icon i {
+    font-size: 30px;
+    color: blueviolet;
+    background-color: black;
+    cursor: pointer;
+  }
+  .dashboard header nav .icon:focus i {
+    border: solid 1px black;
+    border-color: blueviolet;
+    background-color: black;
+  }
+  .dashboard header nav .icon:focus + .menu {
+    transform: translatey(0%);
+    opacity: 1;
+  }
+  .dashboard header nav .menu {
+    position: absolute;
+    background-color: rgb(1, 1, 31);
+    list-style: none;
+    padding: 20px;
+    top: 100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    transform: translatey(-120%);
+    transition: all 1s linear;
+    opacity: 0;
+  }
+  .dashboard header nav .menu li {
+    padding: 10px;
+  }
+}
+.dashboard aside {
+  grid-area: aside;
+  background-color: grey;
+  text-align: center;
+  padding: 10px;
+}
+.dashboard main {
+  grid-area: main;
+  background-color: black;
+  color: whitesmoke;
+  justify-content: center;
+  text-align: center;
+}
+.dashboard main .cards {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 10px;
+}
+.dashboard main .cards .card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  padding: 10px;
+  animation: 3s ease-out slideIn;
+}
+.dashboard main .cards .card-header img {
+  height: 200px;
+}
+.dashboard main .cards .card-header:hover {
+  cursor: pointer;
+  animation: 1s ease-in-out;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateY(-200px);
+  }
+  50% {
+    transform: translateY(100px);
+    transform: rotateY(-70deg);
+  }
+  100% {
+    transform: translateY(0) rotateY(360deg);
+  }
+}
+.dashboard main .cards .card-body {
+  min-height: 30px;
+}
+.dashboard main .cards .card-footer {
+  min-height: 30px;
+}
+.dashboard main .cards .card-footer button {
+  margin: 5%;
+  cursor: pointer;
+}
+.dashboard footer {
+  grid-area: footer;
+  background-color: rgb(10, 10, 75);
+  color: rgb(190, 186, 186);
+  text-align: center;
+  padding: 20px;
+}
+
+@media (min-width: 576px) {
+  .dashboard {
+    grid-template-areas: "header header header header header" "aside main main main main" "footer footer footer footer footer";
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 230px;
+  }
+  .dashboard header nav .brand figure {
+    width: 80px;
+  }
+  .dashboard header nav .icon {
+    display: none;
+  }
+  .dashboard header nav .menu {
+    display: flex;
+    color: blueviolet;
+    list-style: none;
+    gap: 15px;
+    /*li {
+        background: white;
+    }*/
+  }
+  .dashboard header nav .main {
+    grid-area: main;
+    background-color: white;
+    display: grid;
+  }
+  .dashboard aside {
+    height: auto;
+  }
+}
+@media (min-width: 992px) {
+  .dashboard {
+    grid-template-areas: "header aside aside aside aside" "header main main main main" "footer main main main main";
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 250px;
+  }
+  .dashboard header {
+    height: auto;
+  }
+  .dashboard header nav {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .dashboard header nav .brand figure {
+    width: 80px;
+  }
+  .dashboard header nav .icon {
+    display: none;
+  }
+  .dashboard header nav .menu {
+    flex-direction: column;
+    text-align: center;
+  }
+  .dashboard main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}/*# sourceMappingURL=Style.css.map */
